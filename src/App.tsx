@@ -4,6 +4,7 @@ import logoImage from "./assets/logo-removebg-preview.png";
 import studioImage from "./assets/studio.jpeg";
 import codeImage from "./assets/code.jpeg";
 import { ChevronRight } from "lucide-react";
+import PlatformSupport from "./PlatformSupport";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -72,16 +73,16 @@ const features = [
     ],
     imageUrl: `${studioImage}`,
   },
-  {
-    title: "Tech Agnostic",
-    description: [
-      "Intelligent user flow breakdown",
-      "Automated step-by-step execution",
-      "Seamless navigation across mobile screens",
-      "Handling of unexpected pop-ups",
-    ],
-    imageUrl: `${studioImage}`,
-  },
+  // {
+  //   title: "Tech Agnostic",
+  //   description: [
+  //     "Intelligent user flow breakdown",
+  //     "Automated step-by-step execution",
+  //     "Seamless navigation across mobile screens",
+  //     "Handling of unexpected pop-ups",
+  //   ],
+  //   imageUrl: `${studioImage}`,
+  // },
   {
     title: "AI-Powered Visual Interaction",
     description: [
@@ -362,21 +363,25 @@ const StarkVisionLandingPage: React.FC = () => {
               )}
             </AnimatePresence>
           </h1>
-          <motion.p className="text-3xl text-cyan-300 mb-8" variants={fadeInUp}>
-            AI-Powered Mobile App Testing
-          </motion.p>
+
           <section className="mb-16 mt-20 lg:min-h-[36rem]">
             <motion.h2
-              className="text-5xl font-semibold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-500"
+              className="text-3xl font-semibold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-500"
               variants={scaleIn}
             >
-              Test Mobile Apps faster, using AI
+              AI powered Mobile Apps Testing
             </motion.h2>
-            <motion.div className="overflow-hidden" variants={scaleIn}>
-              <p className="text-2xl text-gray-300 mb-8 whitespace-nowrap">
+            <motion.p
+              className="text-3xl text-cyan-300 mb-8"
+              variants={fadeInUp}
+            >
+              Tech Agnostic, Autonomous Testing
+            </motion.p>
+            {/* <motion.div className="overflow-hidden" variants={scaleIn}>
+              <p className="text-3xl text-gray-300 mb-8 whitespace-nowrap">
                 Tech Agnostic, Autonomous Testing
               </p>
-            </motion.div>
+            </motion.div> */}
           </section>
         </motion.header>
       </div>
@@ -388,7 +393,7 @@ const StarkVisionLandingPage: React.FC = () => {
           variants={staggerChildren}
         >
           <FeaturesSection features={features} />
-
+          <PlatformSupport />
           <motion.section className="mb-16" variants={fadeIn}>
             <h2 className="text-5xl font-semibold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-500">
               Join the Waitlist
