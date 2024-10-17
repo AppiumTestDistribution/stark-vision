@@ -28,36 +28,57 @@ const platforms = [
   { name: "Flutter", icon: FlutterIcon },
 ];
 
+const StarryBackground = () => (
+  <div className="absolute inset-0 overflow-hidden">
+    {[...Array(50)].map((_, i) => (
+      <div
+        key={i}
+        className="absolute bg-white rounded-full"
+        style={{
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          width: `${Math.random() * 2 + 1}px`,
+          height: `${Math.random() * 2 + 1}px`,
+          opacity: Math.random() * 0.7 + 0.3,
+        }}
+      />
+    ))}
+  </div>
+);
+
 const PlatformSupport: React.FC = () => {
   return (
-    <section className="my-20 text-center">
-      <motion.h2
-        className="text-4xl font-bold mb-10 text-gray-100"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        Cross-Platform Mobile Testing Excellence
-      </motion.h2>
-      <motion.div
-        className="flex justify-center items-center space-x-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        {platforms.map((platform, index) => (
-          <motion.div
-            key={platform.name}
-            className="flex flex-col items-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 * index }}
-          >
-            <platform.icon className="w-12 h-12 text-gray-400 mb-2" />
-            <span className="text-sm text-gray-400">{platform.name}</span>
-          </motion.div>
-        ))}
-      </motion.div>
+    <section className="relative py-20 bg-[#2E1A47] overflow-hidden">
+      <StarryBackground />
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.h2
+          className="text-2xl font-semibold mb-12 text-center text-white uppercase tracking-wider"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Cross-Platform Mobile Testing Excellence
+        </motion.h2>
+        <motion.div
+          className="flex justify-center items-center space-x-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {platforms.map((platform, index) => (
+            <motion.div
+              key={platform.name}
+              className="flex flex-col items-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 * index }}
+            >
+              <platform.icon className="w-12 h-12 text-white mb-2" />
+              <span className="text-sm text-white">{platform.name}</span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 };
