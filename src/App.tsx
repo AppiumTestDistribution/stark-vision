@@ -146,7 +146,7 @@ const StarkVisionLandingPage = () => {
 
       <motion.section
         id="waitlist"
-        className="min-h-screen flex flex-col items-center justify-center px-4 py-16"
+        className="bg-black min-h-screen flex flex-col items-center justify-center px-4 py-16"
         variants={fadeIn}
         initial="hidden"
         animate="visible"
@@ -173,7 +173,10 @@ const StarkVisionLandingPage = () => {
         </div>
       </motion.section>
 
-      <footer id="contact" className="text-center py-6 text-sm text-gray-400">
+      <footer
+        id="contact"
+        className="bg-black text-center py-6 text-sm text-gray-400"
+      >
         <p>&copy; 2024 Stark Vision. All rights reserved.</p>
       </footer>
     </div>
