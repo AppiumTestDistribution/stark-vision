@@ -18,7 +18,7 @@ const NavItem: React.FC<{ children: React.ReactNode; href: string }> = ({
     <a
       href={href}
       onClick={(e) => smoothScroll(e, href)}
-      className="block py-3 px-6 text-sm font-medium tracking-wider"
+      className="block py-3 px-6 text-base font-medium tracking-wider"
     >
       {children}
     </a>
@@ -73,7 +73,7 @@ const StarkVisionLandingPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#000000] text-white font-['Inter',sans-serif]">
+    <div className="min-h-screen bg-gradient-to-b from-black to-purple-500 text-white font-['Inter',sans-serif]">
       <div className="fixed inset-0 overflow-hidden">
         {stars.map((star, index) => (
           <div
@@ -106,15 +106,15 @@ const StarkVisionLandingPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <img src={logoImage} alt="Stark Vision Logo" className="w-[400px]" />
+          <img src={logoImage} alt="Stark Vision Logo" className="w-[500px]" />
         </motion.div>
         <motion.p
-          className="text-xl mb-8 font-light tracking-wider uppercase"
+          className="text-3xl mb-8 font-sans tracking-wider"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 1 }}
         >
-          AI POWERED MOBILE APP TESTING
+          AI powered Mobile Apps Testing
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -123,7 +123,7 @@ const StarkVisionLandingPage = () => {
         >
           <Button
             href="#waitlist"
-            className="bg-gradient-to-r from-[#8A2BE2] to-[#FF69B4] hover:from-[#9400D3] hover:to-[#FF1493] text-sm uppercase"
+            className="px-9 py-4 rounded-full text-white font-semibold transition-all duration-300 cursor-pointer bg-gradient-to-r from-purple-500 to-blue-700 hover:opacity-90 text-lg uppercase tracking-wider"
           >
             JOIN THE WAITLIST
           </Button>
