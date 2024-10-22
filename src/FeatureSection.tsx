@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import studioImage from "./assets/studio.jpeg";
 import codeImage from "./assets/code.jpg";
+import ltImage from "./assets/lambdatest.png";
 
 const FeatureSection = () => {
   const fadeIn = {
@@ -81,6 +82,34 @@ const FeatureSection = () => {
               alt="AI Studio"
               className="w-full rounded-lg shadow-lg"
             />
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="mt-32 relative"
+          initial="hidden"
+          animate="visible"
+          variants={fadeIn}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#5FD3F3] to-transparent opacity-5 blur-3xl -z-10"></div>
+
+          <h3 className="text-4xl font-bold mb-16 text-center text-[#5FD3F3]">
+            Cloud Support
+          </h3>
+
+          <div className="relative w-full max-w-xl mx-auto">
+            <div className="absolute inset-0 bg-[#5FD3F3] opacity-10 blur-2xl"></div>
+            <motion.div
+              className="relative bg-white/5 backdrop-blur-lg rounded-2xl p-16 border border-white/10"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src={ltImage}
+                alt="LambdaTest Logo"
+                className="w-48 h-48 object-contain mx-auto filter contrast-125 saturate-150"
+              />
+            </motion.div>
           </div>
         </motion.div>
       </div>
