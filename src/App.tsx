@@ -134,9 +134,8 @@ const StarkVisionLandingPage = () => {
           transition={{ delay: 1.2, duration: 1 }}
         >
           <h2 className="text-2xl font-semibold mb-1 text-[#CB6CE6] uppercase tracking-wider">
-            KEY FEATURES
           </h2>
-          <ChevronDown className="w-8 h-8 text-[#CB6CE6] animate-bounce" />
+          <ChevronDown className="w-12 h-12 text-[#4050e0] animate-bounce" />
         </motion.div>
       </header>
 
