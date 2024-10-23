@@ -34,17 +34,18 @@ const CloudLogosSection = () => {
           Cloud Support
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-20 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 lg:gap-20 max-w-5xl mx-auto">
           {providers.map((provider) => (
             <div
               key={provider.name}
-              className="bg-slate-100 rounded-full p-12 flex items-center justify-center"
+              className="aspect-square bg-slate-100 rounded-full p-4 md:p-8 lg:p-12 flex items-center justify-center transform transition-transform hover:scale-105"
             >
-              <img
-                src={provider.src}
-                alt={`${provider.name} Logo`}
-                className={`${provider.className} h-auto object-contain mix-blend-normal`}
-              />
+              <div className="relative w-full h-full">
+                <img
+                  src={provider.src}
+                  className="absolute inset-0 w-full h-full object-contain p-2 md:p-4"
+                />
+              </div>
             </div>
           ))}
         </div>
