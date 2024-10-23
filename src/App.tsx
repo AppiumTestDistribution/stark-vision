@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import logoImage from "./assets/sv2.png";
 import { ChevronDown } from "lucide-react";
-import PlatformSupport from "./PlatformSupport";
 import FeatureSection from "./FeatureSection";
 
 const fadeIn = {
@@ -142,7 +141,6 @@ const StarkVisionLandingPage = () => {
       </header>
 
       <FeatureSection />
-      <PlatformSupport />
 
       <motion.section
         id="waitlist"
@@ -154,7 +152,7 @@ const StarkVisionLandingPage = () => {
         <h2 className="text-4xl font-semibold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-700">
           Join the Waitlist
         </h2>
-        <div className="w-full max-w-2xl bg-[#1E1E1E] bg-opacity-80 backdrop-blur-sm p-8 rounded-lg shadow-lg border border-[#3D3D3D] overflow-hidden">
+        <div className="w-full max-w-2xl border-[#3D3D3D] overflow-hidden">
           <div className="relative" style={{ height: "600px" }}>
             <iframe
               src="https://app.youform.com/forms/vkihsce9"

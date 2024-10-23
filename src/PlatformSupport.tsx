@@ -48,16 +48,16 @@ const StarryBackground = () => (
 
 const PlatformSupport: React.FC = () => {
   return (
-    <section className="relative py-20 bg-gradient-to-r from-blue-900 to-black-200 overflow-hidden">
+    <section className="relative py-20 overflow-hidden">
       <StarryBackground />
       <div className="container mx-auto px-4 relative z-10">
         <motion.h2
-          className="text-2xl font-semibold mb-12 text-center text-white uppercase tracking-wider"
+          className="text-3xl font-bold text-center text-cyan-400 mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Cross-Platform Mobile Testing Excellence
+          Cross Platform Excellence
         </motion.h2>
         <motion.div
           className="flex justify-center items-center space-x-12"
@@ -73,7 +73,7 @@ const PlatformSupport: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 * index }}
             >
-              <platform.icon className="w-12 h-12 text-white mb-2" />
+              <platform.icon className="w-20 h-12 text-white mb-4" />
               <span className="text-sm text-white">{platform.name}</span>
             </motion.div>
           ))}

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import codeImage from "./assets/code.jpg";
 import CloudLogosSection from "./CloudLogosSection";
 import YouTubePlayer from "./YouTubePlayer";
+import PlatformSupport from "./PlatformSupport.tsx";
 
 const FeatureSection = () => {
   const fadeIn = {
@@ -211,6 +212,7 @@ const FeatureSection = () => {
         </motion.div>
 
         <CloudLogosSection/>
+        <PlatformSupport />
       </div>
     </section>
   );
