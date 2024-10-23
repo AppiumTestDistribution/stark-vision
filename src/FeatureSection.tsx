@@ -11,7 +11,7 @@ const FeatureSection = () => {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-4 py-16" style={{
-      backgroundColor: '#363684',
+      backgroundColor: 'rgb(65 80 224)',
       opacity: 1,
       willChange: 'transform',
       transform: 'none'
