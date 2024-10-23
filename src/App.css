@@ -9,5 +9,5 @@
 }
 
 .animate-twinkle {
-  animation: twinkle 2s ease-in-out infinite;
+  animation: twinkle 30s ease-in-out infinite;
 }

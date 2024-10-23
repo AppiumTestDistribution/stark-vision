@@ -11,7 +11,12 @@ const FeatureSection = () => {
   };
 
   return (
-    <section className="bg-[#2E1A47] text-white" id="features">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-16" style={{
+      backgroundColor: '#363684',
+      opacity: 1,
+      willChange: 'transform',
+      transform: 'none'
+    }}  id="features">
       <div className="container mx-auto px-4 py-20">
         <motion.h2
           className="text-4xl font-bold mb-16 text-center text-white"
@@ -46,7 +51,7 @@ const FeatureSection = () => {
             <h3 className="text-3xl font-bold mb-6 text-[#5FD3F3]">
               AI Studio
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-7">
               <FeatureItem>Intelligent user flow breakdown</FeatureItem>
               <FeatureItem>Automated step-by-step execution</FeatureItem>
               <FeatureItem>
@@ -69,7 +74,7 @@ const FeatureSection = () => {
               <br />
               Interaction
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-7">
               <FeatureItem>Utilizes screen output for navigation</FeatureItem>
               <FeatureItem>Eliminates UI hierarchy dependencies</FeatureItem>
               <FeatureItem>No need for element identifiers</FeatureItem>
@@ -94,7 +99,7 @@ const FeatureSection = () => {
 const FeatureItem = ({ children }: { children: React.ReactNode }) => (
   <li className="flex items-center space-x-3">
     <svg
-      className="flex-shrink-0 w-5 h-5 text-[#5FD3F3]"
+      className="flex-shrink-0 w-8 h-8 text-[#5FD3F3]"
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
