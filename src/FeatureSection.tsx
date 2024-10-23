@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import studioImage from "./assets/studio.jpeg";
 import codeImage from "./assets/code.jpg";
 import CloudLogosSection from "./CloudLogosSection";
+import YouTubePlayer from "./YouTubePlayer";
 
 const FeatureSection = () => {
   const fadeIn = {
@@ -33,20 +33,7 @@ const FeatureSection = () => {
           animate="visible"
           variants={fadeIn}
         >
-          <div className="relative">
-            <img
-              src={studioImage}
-              alt="AI Studio"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="absolute top-0 right-0 bg-black bg-opacity-50 rounded-tr-lg rounded-bl-lg p-2">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              </div>
-            </div>
-          </div>
+          <YouTubePlayer />
           <div>
             <h3 className="text-3xl font-bold mb-6 text-[#5FD3F3]">
               AI Studio
