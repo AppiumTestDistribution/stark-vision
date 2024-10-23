@@ -3,26 +3,12 @@ import { motion } from "framer-motion";
 import logoImage from "./assets/sv2.png";
 import { ChevronDown } from "lucide-react";
 import FeatureSection from "./FeatureSection";
+import NavBar from "./NavBar";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
-
-const NavItem: React.FC<{ children: React.ReactNode; href: string }> = ({
-  children,
-  href,
-}) => (
-  <li className="text-white hover:text-[#CB6CE6] transition-colors duration-300">
-    <a
-      href={href}
-      onClick={(e) => smoothScroll(e, href)}
-      className="block py-3 px-6 text-base font-bold tracking-widest"
-    >
-      {children}
-    </a>
-  </li>
-);
 
 const Button: React.FC<{
   children: React.ReactNode;
@@ -87,13 +73,7 @@ const StarkVisionLandingPage = () => {
         ))}
       </div>
 
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-        <ul className="flex justify-center items-center h-16 text-sm font-medium">
-          <NavItem href="#home">HOME</NavItem>
-          <NavItem href="#features">KEY FEATURES</NavItem>
-          <NavItem href="#waitlist">JOIN THE WAITLIST</NavItem>
-        </ul>
-      </nav>
+      <NavBar />
 
       <header
         id="home"
@@ -133,8 +113,7 @@ const StarkVisionLandingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
         >
-          <h2 className="text-2xl font-semibold mb-1 text-[#CB6CE6] uppercase tracking-wider">
-          </h2>
+          <h2 className="text-2xl font-semibold mb-1 text-[#CB6CE6] uppercase tracking-wider"></h2>
           <ChevronDown className="w-12 h-12 text-[#4050e0] animate-bounce" />
         </motion.div>
       </header>
