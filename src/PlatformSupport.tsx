@@ -46,13 +46,13 @@ const StarryBackground = () => (
   </div>
 );
 
-const PlatformSupport: React.FC = () => {
+const PlatformSupport = () => {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-12 md:py-20 overflow-hidden">
       <StarryBackground />
       <div className="container mx-auto px-4 relative z-10">
         <motion.h2
-          className="text-3xl font-bold text-center text-cyan-400 mb-16"
+          className="text-2xl md:text-3xl font-bold text-center text-cyan-400 mb-8 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -60,7 +60,7 @@ const PlatformSupport: React.FC = () => {
           Cross Platform Excellence
         </motion.h2>
         <motion.div
-          className="flex justify-center items-center space-x-12"
+          className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:justify-center gap-8 md:gap-12 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -68,13 +68,15 @@ const PlatformSupport: React.FC = () => {
           {platforms.map((platform, index) => (
             <motion.div
               key={platform.name}
-              className="flex flex-col items-center"
+              className="flex flex-col items-center justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 * index }}
             >
-              <platform.icon className="w-20 h-12 text-white mb-4" />
-              <span className="text-sm text-white">{platform.name}</span>
+              <platform.icon className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 text-white mb-2 md:mb-4" />
+              <span className="text-xs md:text-sm text-white text-center">
+                {platform.name}
+              </span>
             </motion.div>
           ))}
         </motion.div>
