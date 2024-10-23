@@ -14,11 +14,11 @@ const NavItem: React.FC<{ children: React.ReactNode; href: string }> = ({
   children,
   href,
 }) => (
-  <li className="text-white hover:text-purple-300 transition-colors duration-300">
+  <li className="text-white hover:text-[#CB6CE6] transition-colors duration-300">
     <a
       href={href}
       onClick={(e) => smoothScroll(e, href)}
-      className="block py-3 px-6 text-base font-medium tracking-wider"
+      className="block py-3 px-6 text-base font-bold tracking-widest"
     >
       {children}
     </a>
@@ -73,7 +73,7 @@ const StarkVisionLandingPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-purple-500 text-white font-['Inter',sans-serif]">
+    <div className="min-h-screen bg-black text-white font-['Open Sans']">
       <div className="fixed inset-0 overflow-hidden">
         {stars.map((star, index) => (
           <div
@@ -101,7 +101,7 @@ const StarkVisionLandingPage = () => {
         className="min-h-screen flex flex-col items-center justify-center text-center relative"
       >
         <motion.div
-          className="mb-6"
+          className="mb-9"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -109,12 +109,12 @@ const StarkVisionLandingPage = () => {
           <img src={logoImage} alt="Stark Vision Logo" className="w-[500px]" />
         </motion.div>
         <motion.p
-          className="text-3xl mb-8 font-sans tracking-wider"
+          className="text-xl mb-16 font-sans tracking-wider"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 1 }}
         >
-          AI powered Mobile Apps Testing
+          AI POWERED MOBILE APP TESTING
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -134,10 +134,10 @@ const StarkVisionLandingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
         >
-          <h2 className="text-2xl font-semibold mb-4 text-[#E0B0FF] uppercase tracking-wider">
+          <h2 className="text-2xl font-semibold mb-1 text-[#CB6CE6] uppercase tracking-wider">
             KEY FEATURES
           </h2>
-          <ChevronDown className="w-8 h-8 text-[#E0B0FF] animate-bounce" />
+          <ChevronDown className="w-8 h-8 text-[#CB6CE6] animate-bounce" />
         </motion.div>
       </header>
 
@@ -151,7 +151,7 @@ const StarkVisionLandingPage = () => {
         initial="hidden"
         animate="visible"
       >
-        <h2 className="text-4xl font-semibold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-[#E0B0FF] to-[#FF69B4]">
+        <h2 className="text-4xl font-semibold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-700">
           Join the Waitlist
         </h2>
         <div className="w-full max-w-2xl bg-[#1E1E1E] bg-opacity-80 backdrop-blur-sm p-8 rounded-lg shadow-lg border border-[#3D3D3D] overflow-hidden">

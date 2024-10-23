@@ -8,22 +8,22 @@ const CloudLogosSection = () => {
     {
       name: "BrowserStack",
       src: `${bsImage}`,
-      className: "w-32 md:w-40",
+      className: "w-30 md:w-30",
     },
     {
       name: "LambdaTest",
       src: `${ltImage}`,
-      className: "w-32 md:w-40",
+      className: "w-30 md:w-30",
     },
     {
       name: "PCloudy",
       src: `${pcImage}`,
-      className: "w-32 md:w-40",
+      className: "w-30 md:w-30",
     },
     {
       name: "Sauce Labs",
       src: `${slImage}`,
-      className: "w-32 md:w-40",
+      className: "w-30 md:w-30",
     },
   ];
 
@@ -34,11 +34,11 @@ const CloudLogosSection = () => {
           Cloud Support
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-20 max-w-5xl mx-auto">
           {providers.map((provider) => (
             <div
               key={provider.name}
-              className="bg-slate-100 rounded-lg p-6 flex items-center justify-center"
+              className="bg-slate-100 rounded-full p-12 flex items-center justify-center"
             >
               <img
                 src={provider.src}

@@ -48,7 +48,7 @@ const StarryBackground = () => (
 
 const PlatformSupport: React.FC = () => {
   return (
-    <section className="relative py-20 bg-[#2E1A47] overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-r from-blue-900 to-black-200 overflow-hidden">
       <StarryBackground />
       <div className="container mx-auto px-4 relative z-10">
         <motion.h2
