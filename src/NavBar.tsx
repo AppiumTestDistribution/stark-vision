@@ -15,7 +15,7 @@ const NavItem: React.FC<NavItemProps> = ({
   isMobile = false,
 }) => (
   <li
-    className={`text-white hover:text-[#CB6CE6] transition-colors duration-300 ${
+    className={`text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r from-purple-500 to-blue-700 transition-colors duration-300 ${
       isMobile ? "w-full" : ""
     }`}
   >
