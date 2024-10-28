@@ -17,7 +17,7 @@ const YouTubePlayer = () => {
         )}
         <iframe
           className="absolute inset-0 w-full h-full rounded-lg shadow-2xl"
-          src="https://www.youtube-nocookie.com/embed/q8KqLCbgRuo"
+          src="https://www.youtube-nocookie.com/embed/SOWxNVmNvVw"
           title="YouTube Video Player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
