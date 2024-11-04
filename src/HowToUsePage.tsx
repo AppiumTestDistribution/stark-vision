@@ -167,12 +167,22 @@ const HowToUsePage = () => {
                   <p className="text-gray-300">{option.description}</p>
                 </div>
               ))}
+              <a
+                href="https://github.com/AppiumTestDistribution/stark-vision/blob/main/README.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-sm text-blue-400 hover:text-blue-300 transition-colors duration-200"
+              >
+                Check out our GitHub README for more details →
+              </a>
             </div>
           </motion.div>
         </motion.div>
 
-        <footer className="bg-black text-center py-6 text-sm text-gray-400">
-          <p>&copy; 2024 Stark Vision. All rights reserved.</p>
+        <footer className="bg-black text-center py-6 space-y-2">
+          <p className="text-sm text-gray-400">
+            &copy; 2024 Stark Vision. All rights reserved.
+          </p>
         </footer>
       </div>
     </div>
