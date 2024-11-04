@@ -281,7 +281,67 @@ public class SampleTest {
     }
 }
 ```
+How to add assertions to the test?
+WDIO
+```javascript
+const aiGetInfo = async (instruction) => {
+  await driver.pause(2000);
+  return await driver.execute("vision: getInfo", {
+    instruction,
+  });
+};
 
+aiGetInfo('Can you see "HSR Layout below Favourties?")
+Output:
+{
+conditionSatisfied: true,
+explanation: Yes, 'HSR Layout' appears directly below the 'Add to favourites' heading, followed by 'Bengaluru, Karnataka, India' as the address.
+}
+```
+
+JAVA
+```java
+@Test
+    public void SampleTest2() throws JsonProcessingException {
+       ai("Click on 'Where are you going?'");
+       ai("Enter for 'HSR Layout' in the Drop location field");
+       ai("Click on the 'Heart icon of HSR Layout below Select on Map'");
+       AIResponse response = getAIResponse("Can you see 'HSR Layout below Add to favourites'?");
+       System.out.println("Condition Satisfied: " + response.isConditionSatisfied());
+       System.out.println("Explanation: " + response.getExplanation());
+    }
+
+        /**
+     * Gets AI information and parses the response
+     * @param instruction The instruction to send to AI
+     * @return AIResponse containing the parsed response
+     * @throws JsonProcessingException if JSON parsing fails
+     */
+    protected AIResponse getAIResponse(String instruction) throws JsonProcessingException {
+        String result = (String) aiGetInfo(instruction);
+        Map<String, Object> jsonMap = mapper.readValue(result, new TypeReference<Map<String, Object>>() {});
+        
+        boolean conditionSatisfied = (Boolean) jsonMap.get("conditionSatisfied");
+        String explanation = (String) jsonMap.get("explanation");
+        
+        return new AIResponse(conditionSatisfied, explanation);
+    }
+
+    private Object ai(String instruction) {
+        Map<String, Object> args = new HashMap<>();
+        args.put("instruction", instruction);
+        Map<String, Object> options = new HashMap<>();
+        options.put("saveToCache", false);
+        args.put("options", options);
+        return driver.executeScript("vision: findByAI", args);
+    }
+
+    private Object aiGetInfo(String instruction) {
+        Map<String, Object> args = new HashMap<>();
+        args.put("instruction", instruction);
+        return driver.executeScript("vision: getInfo", args);
+    }
+```
 ## Options for Stark Instructions
 
 ### Element Visibility Check
