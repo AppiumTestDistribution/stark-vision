@@ -234,6 +234,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -241,32 +244,94 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class SampleTest {
     public AppiumDriver driver;
+    private final ObjectMapper mapper = new ObjectMapper();
+
     @BeforeClass
     public void setUp() throws MalformedURLException {
-        //iOSDriverCreation();
-       UiAutomator2Options options = new UiAutomator2Options();
-       options.setNewCommandTimeout(Duration.ofSeconds(700000));
-       options.setAutomationName("UIAutomator2");
-       options.setApp(System.getProperty("user.dir") + "/VodQA.apk");
-       driver = new AndroidDriver(new URL("http://127.0.0.1:4040/wd/hub"), options);
+        // iOSDriverCreation();
+        UiAutomator2Options options = new UiAutomator2Options();
+        options.setNewCommandTimeout(Duration.ofSeconds(700000));
+        options.setAutomationName("UIAutomator2");
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4040/wd/hub"), options);
     }
 
     @Test
-    public void SampleTest() {
-     System.out.println(aiGetInfo("Get me the username field text?"));
-       ai("Click on the LOG IN button");
+    public void testWithSwipeAndAssertions() throws JsonProcessingException {
+        ai("Scroll up until you see 'Made in India'", 5);
+        ai("Scroll down until you see 'Address List'", 5, "SMALL");
+        ai("Click on 'Where are you going?'");
+        ai("Enter for 'HSR Layout' in the Drop location field");
+        ai("Click on the 'Heart icon of HSR Layout Polic Station below Select on Map'");
+        AIResponse response = getAIResponse("Can you see 'HSR Layout Polic Station below Add to favourites'?");
+        System.out.println("Condition Satisfied: " + response.isConditionSatisfied());
+        System.out.println("Explanation: " + response.getExplanation());
+        ai("Click on the device back button");
+        ai("Click on 'HSR Layout below Select on Map'");
+        ai("Scroll up from \"Vehicle scrollable view\" until you see the \"Auto Pet\" text");
+    }
 
+
+    /**
+     * Gets AI information and parses the response
+     * 
+     * @param instruction The instruction to send to AI
+     * @return AIResponse containing the parsed response
+     * @throws JsonProcessingException if JSON parsing fails
+     */
+    protected AIResponse getAIResponse(String instruction) throws JsonProcessingException {
+        String result = (String) aiGetInfo(instruction);
+        Map<String, Object> jsonMap = mapper.readValue(result, new TypeReference<Map<String, Object>>() {
+        });
+
+        boolean conditionSatisfied = (Boolean) jsonMap.get("conditionSatisfied");
+        String explanation = (String) jsonMap.get("explanation");
+
+        return new AIResponse(conditionSatisfied, explanation);
     }
 
     private Object ai(String instruction) {
+        return ai(instruction, null, null, null, null);
+    }
+
+    private Object ai(String instruction, int maxScrolls) {
+        return ai(instruction, null, null, maxScrolls, null);
+    }
+
+    private Object ai(String instruction, int maxScrolls, String scrollSize) {
+        return ai(instruction, null, null, maxScrolls, scrollSize);
+    }
+    
+    private Object ai(String instruction, Boolean saveToCache, Boolean elementVisibleCheck, Integer maxScrolls, String scrollSize) {
+        // Set default values for optional parameters
+        if (saveToCache == null) {
+            saveToCache = false; // Default value
+        }
+        if (elementVisibleCheck == null) {
+            elementVisibleCheck = true; // Default value
+        }
+        if (maxScrolls == null) {
+            maxScrolls = 3; // Default value
+        }
+        if (scrollSize == null) {
+            scrollSize = "SMALL"; // Default value
+        }
+    
         Map<String, Object> args = new HashMap<>();
         args.put("instruction", instruction);
+    
+        // Options map with parameters
         Map<String, Object> options = new HashMap<>();
-        options.put("saveToCache", false);
+        options.put("saveToCache", saveToCache);
+        options.put("elementVisibleCheck", elementVisibleCheck);
+        options.put("maxScrolls", maxScrolls);
+        options.put("scrollSize", scrollSize);
+    
+        // Add options to args
         args.put("options", options);
+    
+        // Execute the Appium script
         return driver.executeScript("vision: findByAI", args);
     }
 
@@ -275,11 +340,13 @@ public class SampleTest {
         args.put("instruction", instruction);
         return driver.executeScript("vision: getInfo", args);
     }
+
     @AfterClass
     public void tearDown() {
         driver.quit();
     }
 }
+
 ```
 How to add assertions to the test?
 WDIO
