@@ -69,34 +69,9 @@ Stark is looking for appium server to be running in default port 4723, if you st
 
 _Default port for stark server: 4040. Use `http://localhost:4040/wd/hub` for the Appium WebDriver._
 
-### 3. Running the Studio
+### 3. Running Test Automation
 
-Launch the Studio interface for visual test management:
-
-```shell
-STARK_API_KEY=your_api_key stark-vision-studio --config /path/to/studio-config.json
-```
-
-Sample studio-config.json
-
-```
-{
-  "url": "http://localhost:4040/wd/hub", //url should point to stark-vision server
-  "capabilities": {
-    "platformName": "android",
-    "appium:automationName": "uiautomator2"
-  }
-}
-
-```
-
-### 4. Running Test Automation
-
-Execute your test cases with:
-
-```shell
-STARK_API_KEY=your_api_key npm run test
-```
+Before you execute tests make sure the appium server url is pointing to `http://localhost:4040/wd/hub`.
 
 ---
 
