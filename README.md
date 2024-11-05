@@ -297,6 +297,11 @@ Output:
 conditionSatisfied: true,
 explanation: Yes, 'HSR Layout' appears directly below the 'Add to favourites' heading, followed by 'Bengaluru, Karnataka, India' as the address.
 }
+If instruction is not found then the output would look like
+{
+conditionSatisfied: false,
+explanation: There is no 'HSR Layout' text directly below 'Add to favourites'. The image shows 'Add to favourites' at the bottom of a list of HSR Layout locations, but below that is just a keyboard interface for English (India)..
+}
 ```
 
 JAVA
