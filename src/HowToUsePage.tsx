@@ -102,10 +102,6 @@ const HowToUsePage = () => {
                   code: "stark-vision",
                   note: "Default port: 4040 (http://localhost:4040/wd/hub)",
                 },
-                {
-                  title: "4. Running the Studio",
-                  code: "STARK_API_KEY=your_api_key stark-vision-studio --config /path/to/studio-config.json",
-                },
               ].map((step, index) => (
                 <div
                   key={index}
