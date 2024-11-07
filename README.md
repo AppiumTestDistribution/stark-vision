@@ -182,12 +182,18 @@ describe("Plugin Test", () => {
   afterEach(async () => await driver.deleteSession());
 });
 
+//WDIO does not throw error that is handled by stark vision.
 const ai = async (instruction, options) => {
-  return await driver.execute("vision: findByAI", {
+  const res = await driver.execute('vision: findByAI', {
     instruction,
     options,
   });
+  if (res.error) {
+    throw new Error(JSON.stringify(res));
+  }
+  return res;
 };
+
 
 const aiGetInfo = async (instruction) => {
   await driver.pause(2000);
