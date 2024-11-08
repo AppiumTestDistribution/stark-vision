@@ -102,7 +102,7 @@ _Default port for stark server: 4040. Use `http://localhost:4040/wd/hub` for the
 
 ## Usage Examples
 
-By default, Stark-Vision doesn't cache anything locally to enhance performance. If you'd like to enable caching for instructions, you can set vision:saveToCache: true in your capabilities. This will allow element actions to be retrieved from the cache on subsequent runs.
+By default, Stark-Vision doesn't cache anything locally to enhance performance. If you'd like to enable caching for instructions, you can set `vision:saveToCache: true` in your capabilities. This will allow element actions to be retrieved from the cache on subsequent runs.
 
 Here's how to write a simple test in natural language:
 
