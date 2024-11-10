@@ -17,9 +17,10 @@ Explore more: [starkvision.in](https://starkvision.in) 🌐
    - [Running Test Automation](#4-running-test-automation)
 4. [Cloud Configuration](#cloud-configuration)
 5. [Usage Examples](#usage-examples)
-6. [Contributing](#contributing)
-7. [Configuration](#Options-for-Stark-Instructions)
-8. [Links & Documentation](#links--documentation)
+6. [Recommendations](#Recommendations)
+7. [Contributing](#contributing)
+8. [Configuration](#Options-for-Stark-Instructions)
+9. [Links & Documentation](#links--documentation)
 
 ---
 
@@ -353,78 +354,12 @@ conditionSatisfied: false,
 explanation: There is no 'HSR Layout' text directly below 'Add to favourites'. The image shows 'Add to favourites' at the bottom of a list of HSR Layout locations, but below that is just a keyboard interface for English (India)..
 }
 ```
+## Recommendations 
 
-JAVA
-```java
-@Test
-    public void SampleTest2() throws JsonProcessingException {
-       ai("Click on 'Where are you going?'");
-       ai("Enter for 'HSR Layout' in the Drop location field");
-       ai("Click on the 'Heart icon of HSR Layout below Select on Map'");
-       AIResponse response = getAIResponse("Can you see 'HSR Layout below Add to favourites'?");
-       System.out.println("Condition Satisfied: " + response.isConditionSatisfied());
-       System.out.println("Explanation: " + response.getExplanation());
-    }
+1. Stark-Vision doesn’t cache data locally by default to optimize performance. To enable caching for future runs, set the capability `vision:saveToCache: true`.
+2. For any scroll instruction, such as `await ai('Scroll up until you see the "Add" text')`, you can skip checking if the element is visible, as the prior instruction already performs this check.
+3. Any instruction that follows a scroll action should have `saveToCache: false` if caching is enabled in the capabilities.
 
-        /**
-     * Gets AI information and parses the response
-     * @param instruction The instruction to send to AI
-     * @return AIResponse containing the parsed response
-     * @throws JsonProcessingException if JSON parsing fails
-     */
-    protected AIResponse getAIResponse(String instruction) throws JsonProcessingException {
-        String result = (String) aiGetInfo(instruction);
-        Map<String, Object> jsonMap = mapper.readValue(result, new TypeReference<Map<String, Object>>() {});
-        
-        boolean conditionSatisfied = (Boolean) jsonMap.get("conditionSatisfied");
-        String explanation = (String) jsonMap.get("explanation");
-        
-        return new AIResponse(conditionSatisfied, explanation);
-    }
-
-    private Object ai(String instruction) {
-        Map<String, Object> args = new HashMap<>();
-        args.put("instruction", instruction);
-        Map<String, Object> options = new HashMap<>();
-        options.put("saveToCache", false);
-        args.put("options", options);
-        return driver.executeScript("vision: findByAI", args);
-    }
-
-    private Object aiGetInfo(String instruction) {
-        Map<String, Object> args = new HashMap<>();
-        args.put("instruction", instruction);
-        return driver.executeScript("vision: getInfo", args);
-    }
-
-package com.atd.test;
-
-public class AIResponse {
-    private final boolean conditionSatisfied;
-    private final String explanation;
-
-    public AIResponse(boolean conditionSatisfied, String explanation) {
-        this.conditionSatisfied = conditionSatisfied;
-        this.explanation = explanation;
-    }
-
-    public boolean isConditionSatisfied() {
-        return conditionSatisfied;
-    }
-
-    public String getExplanation() {
-        return explanation;
-    }
-
-    @Override
-    public String toString() {
-        return "AIResponse{" +
-                "conditionSatisfied=" + conditionSatisfied +
-                ", explanation='" + explanation + '\'' +
-                '}';
-    }
-}
-```
 ## Options for Stark Instructions
 
 ### Element Visibility Check
