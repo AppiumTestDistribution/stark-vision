@@ -15,12 +15,13 @@ Explore more: [starkvision.in](https://starkvision.in) 🌐
    - [Running the Server](#2-running-the-server)
    - [Running the Studio](#3-running-the-studio)
    - [Running Test Automation](#4-running-test-automation)
-4. [Cloud Configuration](#cloud-configuration)
-5. [Usage Examples](#usage-examples)
-6. [Recommendations](#Recommendations)
-7. [Contributing](#contributing)
-8. [Configuration](#Options-for-Stark-Instructions)
-9. [Links & Documentation](#links--documentation)
+4. [Docker](#Docker)
+5. [Cloud Configuration](#cloud-configuration)
+6. [Usage Examples](#usage-examples)
+7. [Recommendations](#Recommendations)
+8. [Contributing](#contributing)
+9. [Configuration](#Options-for-Stark-Instructions)
+10. [Links & Documentation](#links--documentation)
 
 ---
 
@@ -75,6 +76,38 @@ _Default port for stark server: 4040. Use `http://localhost:4040/wd/hub` for the
 Before you execute tests make sure the appium server url is pointing to `http://localhost:4040/wd/hub`.
 
 ---
+
+## Docker
+
+### Pulling and Running the Appium Stark Vision Docker Container
+
+Follow these steps to build and run the Docker container, set up the environment, and connect an ADB device on a Mac:
+
+1. **Build the Docker Image**:
+   ```bash
+   docker pull atddevs/stark-vision
+   ```
+
+2. **Run the Docker Container**:
+   Start the container, exposing the necessary ports and setting the `STARK_API_KEY` environment variable:
+   ```bash
+   docker run -d --name appium-stark-vision-container -p 4723:4723 -p 4040:4040 -e STARK_API_KEY=your_api_key_value appium-stark-vision
+   ```
+
+3. **Connect the ADB Device Inside the Container for MAC**:
+   Use the following commands to connect the ADB device and list connected devices:
+
+   - Connect the ADB device:
+     ```bash
+     docker exec appium-stark-vision-container adb connect 192.168.29.146:5555 //IP address of the android device wifi
+     ```
+
+   - List connected ADB devices:
+     ```bash
+     docker exec appium-stark-vision-container adb devices
+     ```
+
+Now you’re ready to use the container for test automation with both Appium and Stark Vision services running!
 
 ## Cloud Configuration
 
