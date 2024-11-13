@@ -91,7 +91,7 @@ Follow these steps to build and run the Docker container, set up the environment
 2. **Run the Docker Container**:
    Start the container, exposing the necessary ports and setting the `STARK_API_KEY` environment variable:
    ```bash
-   docker run -d --name appium-stark-vision-container -p 4723:4723 -p 4040:4040 -e STARK_API_KEY=your_api_key_value appium-stark-vision
+   docker run -d --name appium-stark-vision-container -p 4723:4723 -p 4040:4040 -e STARK_API_KEY=your_api_key_value atddevs/stark-vision
    ```
 
 3. **Connect the ADB Device Inside the Container for MAC**:
