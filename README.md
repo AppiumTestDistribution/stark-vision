@@ -94,7 +94,7 @@ Follow these steps to build and run the Docker container, set up the environment
    docker run -d --name appium-stark-vision-container -p 4723:4723 -p 4040:4040 -e STARK_API_KEY=your_api_key_value atddevs/stark-vision
    ```
 
-3. **Connect the ADB Device Inside the Container for MAC**:
+3. **Connect the ADB Device Inside the Container for MAC via WIFI**:
    Use the following commands to connect the ADB device and list connected devices:
 
    - Connect the ADB device:
@@ -106,6 +106,13 @@ Follow these steps to build and run the Docker container, set up the environment
      ```bash
      docker exec appium-stark-vision-container adb devices
      ```
+4. **Connect ADB device inside the container for MAC via host**:
+    ```
+    -e USE_HOST_ADB=true
+    ```
+    ```bash
+    docker run -d --name appium-stark-vision-container -p 4723:4723 -p 4040:4040 -e STARK_API_KEY=your_api_key_value -e USE_HOST_ADB=true atddevs/stark-vision
+    ```
 
 Now you’re ready to use the container for test automation with both Appium and Stark Vision services running!
 
