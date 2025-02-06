@@ -131,7 +131,7 @@ Best Practices:
 
 ### 4. Verification/Assertions
 
-Stark Vision supports various types of assertions to verify UI elements and states. Use `aiGetInfo()` for all assertions.
+Stark Vision supports various types of assertions to verify UI elements and states. Use `aiGetInfo()` for more descriptive assertions.
 
 #### A. Basic Element Presence
 ```javascript
@@ -211,7 +211,12 @@ await aiGetInfo('Is the bottom navigation bar fully visible?');
   explanation: string          // Detailed explanation of verification
 }
 ```
-
+#### G. Verification - Returns true or false
+```javascript
+// Element visibility
+await ai('Verify the loading spinner visible?');
+await ai('Verify the error message hidden?');
+```
 #### Best Practices for Assertions
 
 1. **Be Specific**
