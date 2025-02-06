@@ -347,6 +347,8 @@ When multiple similar elements exist, use these strategies:
    - Avoid ambiguous descriptions
 
 3. **Configuration Options**
+   
+   Detail Explanation found [here](https://github.com/AppiumTestDistribution/stark-vision/tree/main?tab=readme-ov-file#options-for-stark-instructions)
    ```javascript
    {
      elementVisibleCheck: boolean,  // Check element visibility before action
@@ -356,7 +358,7 @@ When multiple similar elements exist, use these strategies:
    }
    ```
 
-4. **Performance Optimization**
+5. **Performance Optimization**
    - Disable elementVisibleCheck after scroll operations
    - Use saveToCache: false after scroll actions
    - Adjust maxScrolls based on content length
