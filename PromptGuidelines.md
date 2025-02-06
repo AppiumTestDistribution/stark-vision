@@ -129,20 +129,6 @@ Best Practices:
    }
    ```
 
-4. **Complex Gestures**
-   ```javascript
-   // Multi-step gestures
-   await ai('Scroll up until you see "Category List"');
-   await ai('Swipe left on "First Item"');
-   
-   // Gesture with verification
-   await ai('Scroll up until you see "Submit"');
-   const enabled = await aiGetInfo('Is submit button enabled?');
-   if (enabled.conditionSatisfied) {
-     await ai('Click on submit button');
-   }
-   ```
-
 ### 4. Verification/Assertions
 
 Stark Vision supports various types of assertions to verify UI elements and states. Use `aiGetInfo()` for all assertions.
@@ -162,7 +148,7 @@ await aiGetInfo('Can you see both minus and plus buttons next to quantity?');
 #### B. Element State Verification
 ```javascript
 // Enabled/Disabled states
-await aiGetInfo('Is the checkout button enabled?');
+await aiGetInfo('Is the checkout button enabled? Return as boolean'); -> This will return boolean value.
 await aiGetInfo('Is the payment button disabled?');
 
 // Selected/Checked states
