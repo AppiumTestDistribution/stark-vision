@@ -47,10 +47,6 @@ Basic patterns:
 await ai('Scroll up until you see "Add" text');
 await ai('Scroll down until you see "Payment Methods"');
 
-// Scroll from specific element
-await ai('Scroll up from "Vehicle scrollable view" until you see "Auto Pet" text');
-await ai('Scroll down from "Categories" until you see "Popular Items"');
-
 // Scroll with distance
 await ai('Scroll up by 50%');
 await ai('Scroll down by 75%');
