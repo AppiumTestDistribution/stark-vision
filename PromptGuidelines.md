@@ -70,7 +70,7 @@ Tips:
 - Reference container elements for precise scrolling
 - Include visual markers in scroll targets
 
-#### B. Swipe
+#### B. Swipe - COMING SOON!!!
 Basic patterns:
 ```javascript
 // Directional swipe
