@@ -98,8 +98,8 @@ const NavBar = () => {
     { href: isLandingPage ? "#features" : "/#features", label: "KEY FEATURES" },
     { href: "/how-to-use", label: "HOW TO USE" },
     {
-      href: isLandingPage ? "#waitlist" : "/#waitlist",
-      label: "JOIN THE WAITLIST",
+      href: isLandingPage ? "#contact" : "/#contact",
+      label: "SCHEDULE DEMO",
     },
   ];
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { InlineWidget } from "react-calendly";
 import logoImage from "./assets/sv2.png";
 import { ChevronDown } from "lucide-react";
 import FeatureSection from "./FeatureSection";
@@ -93,7 +94,7 @@ const StarkVisionLandingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 1 }}
         >
-          AI POWERED MOBILE APP TESTING
+          GenAI Native Mobile App Testing Solution
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -101,10 +102,10 @@ const StarkVisionLandingPage = () => {
           transition={{ delay: 0.9, duration: 1 }}
         >
           <Button
-            href="#waitlist"
+            href="#contact"
             className="px-9 py-4 rounded-full text-white font-semibold transition-all duration-300 cursor-pointer bg-gradient-to-r from-purple-500 to-blue-700 hover:opacity-90 text-lg uppercase tracking-wider"
           >
-            JOIN THE WAITLIST
+            SCHEDULE A DEMO
           </Button>
         </motion.div>
         <motion.div
@@ -121,31 +122,27 @@ const StarkVisionLandingPage = () => {
       <FeatureSection />
 
       <motion.section
-        id="waitlist"
+        id="contact"
         className="bg-black min-h-screen flex flex-col items-center justify-center px-4 py-16"
         variants={fadeIn}
         initial="hidden"
         animate="visible"
       >
         <h2 className="text-4xl font-semibold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-700 uppercase">
-          Join the Waitlist
+          Schedule a Demo
         </h2>
-        <div className="w-full max-w-2xl border-[#3D3D3D] overflow-hidden">
-          <div className="relative" style={{ height: "600px" }}>
-            <iframe
-              src="https://app.youform.com/forms/0uzjwfkk"
-              loading="lazy"
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              title="Join Waitlist Form"
-              className="absolute inset-0 w-full h-full"
-              style={{
-                background: "transparent",
-                border: "none",
-              }}
-            />
-          </div>
+        <p className="text-lg text-gray-300 mb-8 max-w-2xl text-center">
+          Book a personalized demo to see how Stark Vision can transform your
+          mobile app testing experience
+        </p>
+        <div className="w-full max-w-3xl bg-white/5 rounded-lg overflow-hidden backdrop-blur-sm">
+          <InlineWidget
+            url="https://calendly.com/atddevs/30min"
+            styles={{
+              height: "650px",
+              width: "100%",
+            }}
+          />
         </div>
       </motion.section>
 
