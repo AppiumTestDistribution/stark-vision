@@ -31,6 +31,14 @@ const HeroSection = () => {
             >
               StarkVision understands the screen as human being would, enabling you to go above and beyond locators
             </motion.p>
+            <motion.p
+              className="text-lg md:text-xl max-w-3xl mx-auto md:mx-0 mb-10 text-gray-400"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 1 }}
+            >
+              Host it on your own infrastructure for maximum security and control.
+            </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
