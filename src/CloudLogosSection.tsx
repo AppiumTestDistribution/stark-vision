@@ -1,57 +1,119 @@
-import ltImage from "./assets/lambdatest.png";
-import slImage from "./assets/SL.png";
-import bsImage from "./assets/BS.png";
-import pcImage from "./assets/pcloudy.png";
+import { motion } from "framer-motion";
+import browserstackLogo from "./assets/BS.png";
+import lambdatestLogo from "./assets/lambdatest.png";
+import pcloudyLogo from "./assets/pcloudy.png";
+import saucelabsLogo from "./assets/SL.png";
+
+const logos = [
+  { src: browserstackLogo, name: "BrowserStack" },
+  { src: lambdatestLogo, name: "LambdaTest" },
+  { src: pcloudyLogo, name: "pCloudy" },
+  { src: saucelabsLogo, name: "Sauce Labs" },
+];
 
 const CloudLogosSection = () => {
-  const providers = [
-    {
-      name: "BrowserStack",
-      src: bsImage,
-      className: "w-full",
-    },
-    {
-      name: "LambdaTest",
-      src: ltImage,
-      className: "w-full",
-    },
-    {
-      name: "PCloudy",
-      src: pcImage,
-      className: "w-full",
-    },
-    {
-      name: "Sauce Labs",
-      src: slImage,
-      className: "w-full",
-    },
-  ];
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
-    <div className="py-12 md:py-20 lg:py-24">
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-cyan-400 mb-8 md:mb-12 lg:mb-16">
-          Cloud Support
-        </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 lg:gap-12 max-w-6xl mx-auto">
-          {providers.map((provider) => (
-            <div
-              key={provider.name}
-              className="aspect-square bg-slate-100 rounded-full p-4 md:p-6 lg:p-8 flex items-center justify-center transform transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              <div className="relative w-full h-full flex items-center justify-center">
-                <div className="w-4/5 h-4/5 relative">
-                  <img
-                    src={provider.src}
-                    alt={provider.name}
-                    className="absolute inset-0 w-full h-full object-contain"
-                  />
-                </div>
-              </div>
+    <div>
+      <motion.h2
+        className="text-4xl font-bold mb-2 text-center text-purple-400 tracking-widest"
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+      >
+        Cloud Support
+      </motion.h2>
+      <p className="text-xl text-gray-400 mb-6 text-center">
+        Integrate with your favorite cloud-based testing platforms.
+      </p>
+      <ul className="space-y-4 text-lg text-gray-300 mb-8">
+        <li className="flex items-start">
+          <svg
+            className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+          <span>
+            <span className="font-semibold text-white">Seamless Integration:</span>{" "}
+            Connect to BrowserStack, Sauce Labs, LambdaTest, and pCloudy with ease.
+          </span>
+        </li>
+        <li className="flex items-start">
+          <svg
+            className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+          <span>
+            <span className="font-semibold text-white">Extensive Device Coverage:</span>{" "}
+            Test on thousands of real devices and browsers in the cloud.
+          </span>
+        </li>
+        <li className="flex items-start">
+          <svg
+            className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+          <span>
+            <span className="font-semibold text-white">Parallel Testing:</span>{" "}
+            Run tests concurrently on multiple devices to speed up your release cycles.
+          </span>
+        </li>
+      </ul>
+      <div className="flex justify-center items-center space-x-8 mt-8">
+        {logos.map((logo, index) => (
+          <motion.div
+            key={index}
+            className="flex flex-col items-center text-center"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            transition={{ delay: index * 0.2 }}
+          >
+            <div className="bg-white rounded-full w-20 h-20 flex items-center justify-center p-3 shadow-lg">
+              <img
+                src={logo.src}
+                alt={logo.name}
+                className="max-h-full max-w-full object-contain"
+              />
             </div>
-          ))}
-        </div>
+            <p className="mt-2 text-white font-semibold text-sm">
+              {logo.name}
+            </p>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

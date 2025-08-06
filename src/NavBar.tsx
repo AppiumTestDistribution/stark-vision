@@ -1,6 +1,7 @@
-import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import logoImage from './assets/sv2.png';
 
 interface NavItemProps {
   children: React.ReactNode;
@@ -104,23 +105,28 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90">
-      <ul className="hidden md:flex justify-center items-center h-16 text-sm font-medium">
-        {navItems.map((item) => (
-          <NavItem key={item.href} href={item.href}>
-            {item.label}
-          </NavItem>
-        ))}
-      </ul>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm">
+      <div className="container mx-auto flex justify-center items-center h-16 px-4">
+        <a href={isLandingPage ? "#home" : "/"} className="flex items-center mr-8">
+          <img src={logoImage} alt="Stark Vision Logo" className="h-12" />
+        </a>
+        <ul className="hidden md:flex justify-center items-center h-16 text-sm font-medium">
+          {navItems.map((item) => (
+            <NavItem key={item.href} href={item.href}>
+              {item.label}
+            </NavItem>
+          ))}
+        </ul>
 
-      <div className="md:hidden flex justify-end items-center h-16 px-4">
-        <button
-          onClick={toggleMenu}
-          className="text-white hover:text-[#CB6CE6] transition-colors duration-300"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex justify-end items-center h-16">
+          <button
+            onClick={toggleMenu}
+            className="text-white hover:text-[#CB6CE6] transition-colors duration-300"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {isOpen && (

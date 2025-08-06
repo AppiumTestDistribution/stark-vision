@@ -1,100 +1,119 @@
 import { motion } from "framer-motion";
-import react from "./assets/react.svg";
-import flutter from "./assets/flutter.svg";
-import swift from "./assets/swift.svg";
-import android from "./assets/android.svg";
-import apple from "./assets/apple.svg";
+import androidLogo from "./assets/android.svg";
+import iosLogo from "./assets/apple.svg";
+import flutterLogo from "./assets/flutter.svg";
+import reactNativeLogo from "./assets/react.svg";
+import swiftLogo from "./assets/swift.svg";
 
 const platforms = [
-  {
-    name: "iOS",
-    Icon: apple,
-    className: "text-white",
-  },
-  {
-    name: "Android",
-    Icon: android,
-    className: "text-white",
-  },
-  {
-    name: "React Native",
-    Icon: react,
-    className: "text-white",
-  },
-  {
-    name: "Swift",
-    Icon: swift,
-    className: "text-white",
-  },
-  {
-    name: "Flutter",
-    Icon: flutter,
-    className: "text-white",
-  },
+  { src: iosLogo, name: "iOS" },
+  { src: androidLogo, name: "Android" },
+  { src: reactNativeLogo, name: "React Native" },
+  { src: swiftLogo, name: "Swift" },
+  { src: flutterLogo, name: "Flutter" },
 ];
 
-const StarryBackground = () => (
-  <div className="absolute inset-0 overflow-hidden">
-    {[...Array(50)].map((_, i) => (
-      <div
-        key={i}
-        className="absolute bg-white rounded-full"
-        style={{
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-          width: `${Math.random() * 2 + 1}px`,
-          height: `${Math.random() * 2 + 1}px`,
-          opacity: Math.random() * 0.7 + 0.3,
-        }}
-      />
-    ))}
-  </div>
-);
-
 const PlatformSupport = () => {
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <section className="relative py-12 md:py-20 overflow-hidden">
-      <StarryBackground />
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.h2
-          className="text-2xl md:text-3xl font-bold text-center text-cyan-400 mb-8 md:mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Cross Platform Excellence
-        </motion.h2>
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:justify-center gap-8 md:gap-12 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          {platforms.map((platform, index) => (
-            <motion.div
-              key={platform.name}
-              className="flex flex-col items-center space-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 * index }}
-            >
-              <div
-                className={`w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 ${platform.className}`}
-              >
-                <img
-                  src={platform.Icon}
-                  alt={`${platform.name} icon`}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <span className="text-base md:text-lg lg:text-xl font-medium text-white text-center whitespace-nowrap">
-                {platform.name}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
+    <div>
+      <motion.h2
+        className="text-4xl font-bold mb-2 text-center text-purple-400 tracking-widest"
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+      >
+        Cross Platform Excellence
+      </motion.h2>
+      <p className="text-xl text-gray-400 mb-6 text-center">
+        Test your native and hybrid apps with a single, powerful solution.
+      </p>
+      <ul className="space-y-4 text-lg text-gray-300">
+        <li className="flex items-start">
+          <svg
+            className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+          <span>
+            <span className="font-semibold text-white">Native iOS & Android:</span>{" "}
+            Full support for applications built in Swift, Objective-C, Kotlin, and Java.
+          </span>
+        </li>
+        <li className="flex items-start">
+          <svg
+            className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+          <span>
+            <span className="font-semibold text-white">React Native:</span>{" "}
+            Seamlessly test your cross-platform React Native applications.
+          </span>
+        </li>
+        <li className="flex items-start">
+          <svg
+            className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+          <span>
+            <span className="font-semibold text-white">Flutter:</span>{" "}
+            Comprehensive testing for your Flutter-based apps on both platforms.
+          </span>
+        </li>
+      </ul>
+      <div className="flex justify-center items-center space-x-8 mt-8">
+        {platforms.map((platform, index) => (
+          <motion.div
+            key={index}
+            className="flex flex-col items-center"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            transition={{ delay: index * 0.2 }}
+          >
+            <img
+              src={platform.src}
+              alt={platform.name}
+              className="h-12 mb-2"
+            />
+            <span className="text-white text-sm">{platform.name}</span>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 
