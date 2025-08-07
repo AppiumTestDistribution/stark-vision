@@ -3,10 +3,7 @@ import YouTubePlayer from './YouTubePlayer';
 
 const HeroSection = () => {
   return (
-    <header
-      id="home"
-      className="relative text-white py-20 md:py-32"
-    >
+    <header id="home" className="relative text-white py-20 md:py-32">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -21,15 +18,15 @@ const HeroSection = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
             >
-              Vision AI Powered Mobile App Testing Agent
+              Vision AI Native Mobile App Testing Agent
             </motion.h1>
             <motion.p
-              className="text-lg md:text-xl max-w-3xl mx-auto md:mx-0 mb-10 text-gray-400"
+              className="text-xl md:text-2xl font-semibold text-purple-400 mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 1 }}
+              transition={{ delay: 0.7, duration: 1 }}
             >
-              StarkVision understands the screen as human being would, enabling you to go above and beyond locators
+              From the contributors of Appium
             </motion.p>
             <motion.p
               className="text-lg md:text-xl max-w-3xl mx-auto md:mx-0 mb-10 text-gray-400"
@@ -37,7 +34,17 @@ const HeroSection = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 1 }}
             >
-              Host it on your own infrastructure for maximum security and control.
+              StarkVision understands the screen as human being would, enabling
+              you to go above and beyond locators
+            </motion.p>
+            <motion.p
+              className="text-lg md:text-xl max-w-3xl mx-auto md:mx-0 mb-10 text-gray-400"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 1 }}
+            >
+              Host it on your own infrastructure for maximum security and
+              control.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 50 }}

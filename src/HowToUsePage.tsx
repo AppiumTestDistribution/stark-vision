@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
-import NavBar from "./NavBar";
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import NavBar from './NavBar';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -13,38 +13,38 @@ type SectionData = {
 };
 
 const HowToUsePage = () => {
-  const [activeSection, setActiveSection] = useState("introduction");
+  const [activeSection, setActiveSection] = useState('introduction');
 
   const sections: Record<string, SectionData> = {
     introduction: {
-      title: "Stark Vision Documentation 🚀",
+      title: 'Stark Vision Documentation 🚀',
       content: (
         <>
           <p className="text-gray-300 text-lg mb-12">
-            AI-powered mobile test automation framework that transforms mobile
+            AI-Native mobile test automation framework that transforms mobile
             app testing!
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                title: "🤖 AI-Powered Automation",
+                title: '🤖 AI-Native Automation',
                 description:
-                  "Automate mobile apps effortlessly without relying on traditional locators.",
+                  'Automate mobile apps effortlessly without relying on traditional locators.',
               },
               {
-                title: "📝 Natural Language Testing",
+                title: '📝 Natural Language Testing',
                 description:
-                  "Write test cases in simple natural language, and let AI handle the complexities.",
+                  'Write test cases in simple natural language, and let AI handle the complexities.',
               },
               {
-                title: "🔄 Native SDK Switching",
+                title: '🔄 Native SDK Switching',
                 description:
-                  "Switch to native SDKs seamlessly for advanced use cases and added flexibility.",
+                  'Switch to native SDKs seamlessly for advanced use cases and added flexibility.',
               },
               {
-                title: "👁️ Vision-Based Testing",
+                title: '👁️ Vision-Based Testing',
                 description:
-                  "Perform automation based on visual elements to boost accuracy and efficiency.",
+                  'Perform automation based on visual elements to boost accuracy and efficiency.',
               },
             ].map((feature, index) => (
               <div
@@ -61,23 +61,23 @@ const HowToUsePage = () => {
         </>
       ),
     },
-    "getting-started": {
-      title: "Getting Started",
+    'getting-started': {
+      title: 'Getting Started',
       content: (
         <div className="space-y-6">
           {[
             {
-              title: "1. Install Dependencies",
-              code: "npm install stark-vision",
+              title: '1. Install Dependencies',
+              code: 'npm install stark-vision',
             },
             {
-              title: "2. Running the Appium Server",
-              code: "appium server -pa /wd/hub",
+              title: '2. Running the Appium Server',
+              code: 'appium server -pa /wd/hub',
             },
             {
-              title: "3. Running the Stark Server",
-              code: "stark-vision",
-              note: "Default port: 4040 (http://localhost:4040/wd/hub)",
+              title: '3. Running the Stark Server',
+              code: 'stark-vision',
+              note: 'Default port: 4040 (http://localhost:4040/wd/hub)',
             },
           ].map((step, index) => (
             <div
@@ -97,7 +97,7 @@ const HowToUsePage = () => {
       ),
     },
     docker: {
-      title: "Docker",
+      title: 'Docker',
       content: (
         <div className="space-y-6">
           <div className="bg-gradient-to-br from-purple-500/10 to-blue-700/10 rounded-lg p-6 border border-purple-500/20">
@@ -126,8 +126,8 @@ const HowToUsePage = () => {
                 <pre className="bg-gray-900/50 p-4 rounded-lg overflow-x-auto mt-2">
                   <code className="text-gray-300">
                     docker run -d --name appium-stark-vision-container -p
-                    4723:4723 -p 4040:4040 -e
-                    STARK_API_KEY=your_api_key_value atddevs/stark-vision
+                    4723:4723 -p 4040:4040 -e STARK_API_KEY=your_api_key_value
+                    atddevs/stark-vision
                   </code>
                 </pre>
               </li>
@@ -149,9 +149,8 @@ const HowToUsePage = () => {
                 <pre className="bg-gray-900/50 p-4 rounded-lg overflow-x-auto mt-2">
                   <code className="text-gray-300">
                     docker run -d --name appium-stark-vision-container -p
-                    4723:4723 -p 4040:4040 -e
-                    STARK_API_KEY=your_api_key_value -e USE_HOST_ADB=true
-                    atddevs/stark-vision
+                    4723:4723 -p 4040:4040 -e STARK_API_KEY=your_api_key_value
+                    -e USE_HOST_ADB=true atddevs/stark-vision
                   </code>
                 </pre>
               </li>
@@ -160,8 +159,8 @@ const HowToUsePage = () => {
         </div>
       ),
     },
-    "cloud-config": {
-      title: "Cloud Configuration",
+    'cloud-config': {
+      title: 'Cloud Configuration',
       content: (
         <div className="space-y-6">
           <div className="bg-gradient-to-br from-purple-500/10 to-blue-700/10 rounded-lg p-6 border border-purple-500/20">
@@ -196,8 +195,8 @@ const HowToUsePage = () => {
         </div>
       ),
     },
-    "usage-examples": {
-      title: "Usage Examples",
+    'usage-examples': {
+      title: 'Usage Examples',
       content: (
         <div className="space-y-6">
           <div className="bg-gradient-to-br from-purple-500/10 to-blue-700/10 rounded-lg p-6 border border-purple-500/20">
@@ -408,7 +407,7 @@ public class SampleTest {
       ),
     },
     recommendations: {
-      title: "Recommendations",
+      title: 'Recommendations',
       content: (
         <div className="space-y-6">
           <div className="bg-gradient-to-br from-purple-500/10 to-blue-700/10 rounded-lg p-6 border border-purple-500/20">
@@ -416,10 +415,14 @@ public class SampleTest {
               <li>
                 Stark-Vision doesn’t cache data locally by default to optimize
                 performance. To enable caching for future runs, set the
-                capability <code className="bg-gray-900/50 p-1 rounded">vision:saveToCache: true</code>.
+                capability{' '}
+                <code className="bg-gray-900/50 p-1 rounded">
+                  vision:saveToCache: true
+                </code>
+                .
               </li>
               <li>
-                For any scroll instruction, such as{" "}
+                For any scroll instruction, such as{' '}
                 <code className="bg-gray-900/50 p-1 rounded">
                   await ai('Scroll up until you see the "Add" text')
                 </code>
@@ -427,37 +430,39 @@ public class SampleTest {
                 instruction already performs this check.
               </li>
               <li>
-                Any instruction that follows a scroll action should have{" "}
-                <code className="bg-gray-900/50 p-1 rounded">saveToCache: false</code> if
-                caching is enabled in the capabilities.
+                Any instruction that follows a scroll action should have{' '}
+                <code className="bg-gray-900/50 p-1 rounded">
+                  saveToCache: false
+                </code>{' '}
+                if caching is enabled in the capabilities.
               </li>
             </ul>
           </div>
         </div>
       ),
     },
-    "config-options": {
-      title: "Configuration Options",
+    'config-options': {
+      title: 'Configuration Options',
       content: (
         <div className="space-y-6">
           {[
             {
-              title: "Element Visibility Check",
+              title: 'Element Visibility Check',
               code: "await ai('Click on the button', { elementVisibleCheck: false });",
               description:
-                "Determines whether Stark should check if the element is visible before performing an action.",
+                'Determines whether Stark should check if the element is visible before performing an action.',
             },
             {
-              title: "Save to Cache",
+              title: 'Save to Cache',
               code: "await ai('Fetch current data', { saveToCache: false });",
               description:
                 "Specifies whether the result of Stark's action should be cached for later use.",
             },
             {
-              title: "Scrolling Options",
+              title: 'Scrolling Options',
               code: "await ai('Scroll until you find the \"Next\" button', { maxScrolls: 5, scrollSize: 'SMALL' });",
               description:
-                "Controls the scrolling behavior when finding elements not currently in view.",
+                'Controls the scrolling behavior when finding elements not currently in view.',
             },
           ].map((option, index) => (
             <div
@@ -494,11 +499,11 @@ public class SampleTest {
                       onClick={() => setActiveSection(key)}
                       className={`w-full text-left px-4 py-2 rounded-lg transition-colors duration-200 ${
                         activeSection === key
-                          ? "bg-purple-600 text-white"
-                          : "hover:bg-gray-800"
+                          ? 'bg-purple-600 text-white'
+                          : 'hover:bg-gray-800'
                       }`}
                     >
-                      {title.split("🚀")[0]}
+                      {title.split('🚀')[0]}
                     </button>
                   </li>
                 ))}

@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import codeImage from "./assets/code.jpg";
-import studioImage from "./assets/studio.png";
+import { motion } from 'framer-motion';
+import codeImage from './assets/code.jpg';
+import studioImage from './assets/studio.png';
 
 const FeatureSection = () => {
   const fadeIn = {
@@ -9,10 +9,7 @@ const FeatureSection = () => {
   };
 
   return (
-    <section
-      id="features"
-      className="py-20"
-    >
+    <section id="features" className="py-20">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-4xl font-bold mb-16 text-center text-white tracking-widest"
@@ -65,9 +62,8 @@ const FeatureSection = () => {
                 <span>
                   <span className="font-semibold text-white">
                     Intelligent User Flow Analysis:
-                  </span>{" "}
-                  Automatically understand and break down complex user
-                  journeys.
+                  </span>{' '}
+                  Analyzes and deconstructs complex user journeys automatically.
                 </span>
               </li>
               <li className="flex items-start">
@@ -88,8 +84,8 @@ const FeatureSection = () => {
                 <span>
                   <span className="font-semibold text-white">
                     Automated Step-by-Step Execution:
-                  </span>{" "}
-                  Effortlessly run through test scenarios with full automation.
+                  </span>{' '}
+                  Executes test scenarios with full automation.
                 </span>
               </li>
               <li className="flex items-start">
@@ -110,9 +106,8 @@ const FeatureSection = () => {
                 <span>
                   <span className="font-semibold text-white">
                     Seamless Cross-Screen Navigation:
-                  </span>{" "}
-                  Navigate flawlessly between different screens and states in
-                  your app.
+                  </span>{' '}
+                  Navigates seamlessly across different app screens and states.
                 </span>
               </li>
               <li className="flex items-start">
@@ -133,9 +128,8 @@ const FeatureSection = () => {
                 <span>
                   <span className="font-semibold text-white">
                     Robust Pop-up and Alert Handling:
-                  </span>{" "}
-                  Intelligently manage unexpected pop-ups, alerts, and
-                  interruptions.
+                  </span>{' '}
+                  Handles unexpected pop-ups, alerts, and interruptions intelligently.
                 </span>
               </li>
             </ul>
@@ -184,8 +178,9 @@ const FeatureSection = () => {
                 <span>
                   <span className="font-semibold text-white">
                     On-Premise Hosting:
-                  </span>{" "}
-                  Deploy Stark Vision within your own private cloud or on-premise servers for maximum security and control.
+                  </span>{' '}
+                  Deploy Stark Vision within your own private cloud or
+                  on-premise servers for maximum security and control.
                 </span>
               </li>
               <li className="flex items-start">
@@ -206,8 +201,9 @@ const FeatureSection = () => {
                 <span>
                   <span className="font-semibold text-white">
                     Data Privacy:
-                  </span>{" "}
-                  Keep all your test data, reports, and sensitive information within your own network.
+                  </span>{' '}
+                  Keep all your test data, reports, and sensitive information
+                  within your own network.
                 </span>
               </li>
               <li className="flex items-start">
@@ -228,8 +224,9 @@ const FeatureSection = () => {
                 <span>
                   <span className="font-semibold text-white">
                     Custom Integrations:
-                  </span>{" "}
-                  Seamlessly integrate with your existing internal tools and CI/CD pipelines.
+                  </span>{' '}
+                  Seamlessly integrate with your existing internal tools and
+                  CI/CD pipelines.
                 </span>
               </li>
             </ul>
@@ -245,7 +242,7 @@ const FeatureSection = () => {
           >
             <img
               src={codeImage}
-              alt="AI-Powered Visual Interaction"
+              alt="AI-Native Visual Interaction"
               className="rounded-lg shadow-lg"
             />
           </motion.div>
@@ -256,7 +253,7 @@ const FeatureSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-3xl font-bold mb-2 text-purple-400">
-              AI-Powered Visual Interaction
+              AI-Native Visual Interaction
             </h3>
             <p className="text-xl text-gray-400 mb-6">
               See Your App The Way Your Users Do
@@ -280,7 +277,7 @@ const FeatureSection = () => {
                 <span>
                   <span className="font-semibold text-white">
                     Screen-Based Navigation:
-                  </span>{" "}
+                  </span>{' '}
                   Interacts with your app based on what's visually on the
                   screen, just like a real user.
                 </span>
@@ -303,7 +300,7 @@ const FeatureSection = () => {
                 <span>
                   <span className="font-semibold text-white">
                     Hierarchy-Free Interaction:
-                  </span>{" "}
+                  </span>{' '}
                   Frees you from relying on fragile UI element hierarchies and
                   locators.
                 </span>
@@ -326,7 +323,7 @@ const FeatureSection = () => {
                 <span>
                   <span className="font-semibold text-white">
                     Identifier-less Testing:
-                  </span>{" "}
+                  </span>{' '}
                   No more hunting for element IDs, names, or XPaths.
                 </span>
               </li>
@@ -348,9 +345,9 @@ const FeatureSection = () => {
                 <span>
                   <span className="font-semibold text-white">
                     Automatic UI Adaptation:
-                  </span>{" "}
-                  Seamlessly adapts to changes in your app's UI without
-                  breaking tests.
+                  </span>{' '}
+                  Seamlessly adapts to changes in your app's UI without breaking
+                  tests.
                 </span>
               </li>
             </ul>

@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import HeroSection from "./HeroSection";
 import NavBar from "./NavBar";
 import SupportSection from "./SupportSection";
+import UspSection from "./UspSection";
 
 const StarkVisionLandingPage = () => {
   return (
@@ -13,6 +14,8 @@ const StarkVisionLandingPage = () => {
       <HeroSection />
 
       <FeatureSection />
+
+      <UspSection />
 
       <SupportSection />
 
