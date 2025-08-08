@@ -120,6 +120,20 @@ Follow these steps to build and run the Docker container, set up the environment
 
 Now you’re ready to use the container for test automation with both Appium and Stark Vision services running!
 
+## Playground
+
+### Stark Vision Studio
+
+Welcome to the Stark Vision Studio, your all-in-one command center for seamless mobile test automation. Below is an overview of the powerful features at your disposal.
+
+![Studio 1](src/assets/studio.png)
+
+The main dashboard provides a comprehensive view of your testing environment. You can see the live screen of your connected device, view detailed logs in real-time. The top bar allows you to save and load test cases, and manage your sessions.
+
+![Studio 2](src/assets/studio2.png)
+
+inspect the element hierarchy, and view detailed logs in real-time. The top bar allows you to easily switch between different cloud providers and manage your sessions.
+
 ## Cloud Configuration
 
 ### Starting the Server with Cloud Configuration
@@ -127,7 +141,7 @@ Now you’re ready to use the container for test automation with both Appium and
 Configure Stark Vision to run on cloud platforms like LambdaTest:
 
 ```shell
-CLOUD_USERNAME=your_username CLOUD_PASSWORD=your_password STARK_API_KEY=your_api_key stark-vision --config /path/to/caps-config.json
+APPIUM_URL=https://lt_username:lt_accessKey@@mobile-hub.lambdatest.com/wd/hub stark-vision
 ```
 
 _Default port for stark server: 4040. Use `http://localhost:4040/wd/hub` for the Appium WebDriver._
@@ -142,6 +156,7 @@ _Default port for stark server: 4040. Use `http://localhost:4040/wd/hub` for the
   }
 }
 ```
+
 
 ---
 

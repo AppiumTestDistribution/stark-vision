@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import NavBar from './NavBar';
 
 const fadeIn = {
@@ -159,6 +161,29 @@ const HowToUsePage = () => {
         </div>
       ),
     },
+    playground: {
+      title: 'Playground',
+      content: (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-br from-purple-500/10 to-blue-700/10 rounded-lg p-6 border border-purple-500/20">
+            <h3 className="text-xl text-white mb-3">
+              Stark Vision Studio
+            </h3>
+            <p className="text-gray-300 mb-4">
+              Welcome to the Stark Vision Studio, your all-in-one command center for seamless mobile test automation. Below is an overview of the powerful features at your disposal.
+            </p>
+            <img src="src/assets/studio.png" alt="Studio 1" className="rounded-lg mb-4" />
+            <p className="text-gray-300 mb-4">
+              The main dashboard provides a comprehensive view of your testing environment. You can see the live screen of your connected device, View detailed logs in real-time. The top bar allows you to save and load test cases, and manage your sessions.
+            </p>
+            <img src="src/assets/studio2.png" alt="Studio 2" className="rounded-lg mb-4" />
+            <p className="text-gray-300">
+              View detailed logs in real-time. The top bar allows you to save and load test cases, and manage your sessions.
+            </p>
+          </div>
+        </div>
+      ),
+    },
     'cloud-config': {
       title: 'Cloud Configuration',
       content: (
@@ -172,25 +197,12 @@ const HowToUsePage = () => {
             </p>
             <pre className="bg-gray-900/50 p-4 rounded-lg overflow-x-auto">
               <code className="text-gray-300">
-                {`CLOUD_USERNAME=your_username CLOUD_PASSWORD=your_password STARK_API_KEY=your_api_key stark-vision --config /path/to/caps-config.json`}
+                {`APPIUM_URL=https://lt_username:lt_accessKey@@mobile-hub.lambdatest.com/wd/hub stark-vision`}
               </code>
             </pre>
             <p className="text-gray-400 mt-4 text-sm">
               Default port: 4040 (http://localhost:4040/wd/hub)
             </p>
-            <h4 className="text-lg text-white mt-6 mb-3">
-              Sample Cloud Configuration:
-            </h4>
-            <pre className="bg-gray-900/50 p-4 rounded-lg overflow-x-auto">
-              <code className="text-gray-300">
-                {`{
-  "cloud": {
-    "provider": "lambdaTest",
-    "url": "https://mobile-hub.lambdatest.com/wd/hub"
-  }
-}`}
-              </code>
-            </pre>
           </div>
         </div>
       ),
@@ -201,9 +213,8 @@ const HowToUsePage = () => {
         <div className="space-y-6">
           <div className="bg-gradient-to-br from-purple-500/10 to-blue-700/10 rounded-lg p-6 border border-purple-500/20">
             <h3 className="text-xl text-white mb-3">WDIO Example</h3>
-            <pre className="bg-gray-900/50 p-4 rounded-lg overflow-x-auto">
-              <code className="text-gray-300">
-                {`import { remote } from "webdriverio";
+            <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
+              {`import { remote } from "webdriverio";
 import { expect } from "chai";
 import fs from "fs";
 
@@ -295,14 +306,12 @@ const aiGetInfo = async (instruction) => {
     instruction,
   });
 };`}
-              </code>
-            </pre>
+            </SyntaxHighlighter>
           </div>
           <div className="bg-gradient-to-br from-purple-500/10 to-blue-700/10 rounded-lg p-6 border border-purple-500/20">
             <h3 className="text-xl text-white mb-3">Java Example</h3>
-            <pre className="bg-gray-900/50 p-4 rounded-lg overflow-x-auto">
-              <code className="text-gray-300">
-                {`package com.atd.test;
+            <SyntaxHighlighter language="java" style={vscDarkPlus}>
+              {`package com.atd.test;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -400,8 +409,7 @@ public class SampleTest {
     }
 }
 `}
-              </code>
-            </pre>
+            </SyntaxHighlighter>
           </div>
         </div>
       ),
