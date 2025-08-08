@@ -47,10 +47,16 @@ const NavItem: React.FC<NavItemProps> = ({
     if (onClick) onClick();
   };
 
+  const isScheduleDemo = children === "SCHEDULE DEMO";
+
   return (
     <li
-      className={`text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r from-purple-500 to-blue-700 transition-colors duration-300 ${
-        isMobile ? "w-full" : ""
+      className={`${
+        isScheduleDemo
+          ? "ml-4"
+          : `text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r from-purple-500 to-blue-700 transition-colors duration-300 ${
+              isMobile ? "w-full" : ""
+            }`
       }`}
     >
       <a
@@ -59,8 +65,12 @@ const NavItem: React.FC<NavItemProps> = ({
         className={`block py-3 px-6 text-base font-bold tracking-widest ${
           isMobile ? "text-center hover:bg-gray-800" : ""
         } ${
-          location.hash === href
+          location.hash === href && !isScheduleDemo
             ? "text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-700"
+            : ""
+        } ${
+          isScheduleDemo
+            ? "bg-purple-600 text-white rounded-full hover:bg-purple-700"
             : ""
         }`}
       >
@@ -98,6 +108,7 @@ const NavBar = () => {
     { href: isLandingPage ? "#home" : "/", label: "HOME" },
     { href: isLandingPage ? "#features" : "/#features", label: "KEY FEATURES" },
     { href: "/how-to-use", label: "HOW TO USE" },
+    { href: "/videos", label: "VIDEOS" },
     {
       href: isLandingPage ? "#contact" : "/#contact",
       label: "SCHEDULE DEMO",

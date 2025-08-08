@@ -66,7 +66,7 @@ const HeroSection = () => {
             transition={{ duration: 1 }}
           >
             <div className="aspect-w-16 aspect-h-9">
-              <YouTubePlayer />
+              <YouTubePlayer videoId="SOWxNVmNvVw" />
             </div>
           </motion.div>
         </div>

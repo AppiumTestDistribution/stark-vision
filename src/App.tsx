@@ -1,7 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import StarkVisionLandingPage from "./StarkVisionLandingPage";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import HowToUsePage from "./HowToUsePage";
 import { ScrollToTop } from "./ScrollToTop";
+import StarkVisionLandingPage from "./StarkVisionLandingPage";
+import VideosPage from "./VideosPage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<StarkVisionLandingPage />} />
         <Route path="/how-to-use" element={<HowToUsePage />} />
+        <Route path="/videos" element={<VideosPage />} />
       </Routes>
     </Router>
   );
