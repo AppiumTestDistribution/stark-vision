@@ -490,8 +490,5 @@ _For more detailed examples and edge cases, visit our documentation._
 ## Links & Documentation
 
 - **Official Website**: [starkvision.in](https://starkvision.in)
-- **API Reference**: [API Docs](link-to-api-docs)
-- **Detailed Documentation**: [Docs](link-to-detailed-docs)
-- **Community Support**: [Discussion Forum](link-to-community-forum)
 
 ---
