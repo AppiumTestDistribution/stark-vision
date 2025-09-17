@@ -1,6 +1,7 @@
-import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import logoImage from './assets/sv2.png';
 
 interface NavItemProps {
   children: React.ReactNode;
@@ -20,6 +21,9 @@ const NavItem: React.FC<NavItemProps> = ({
   const isLandingPage = location.pathname === "/";
 
   const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href.startsWith("http://") || href.startsWith("https://")) {
+      return;
+    }
     e.preventDefault();
 
     if (href.startsWith("#")) {
@@ -46,10 +50,16 @@ const NavItem: React.FC<NavItemProps> = ({
     if (onClick) onClick();
   };
 
+  const isScheduleDemo = children === "Try Stark Vision";
+
   return (
     <li
-      className={`text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r from-purple-500 to-blue-700 transition-colors duration-300 ${
-        isMobile ? "w-full" : ""
+      className={`${
+        isScheduleDemo
+          ? "ml-4"
+          : `text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r from-purple-500 to-blue-700 transition-colors duration-300 ${
+              isMobile ? "w-full" : ""
+            }`
       }`}
     >
       <a
@@ -58,10 +68,16 @@ const NavItem: React.FC<NavItemProps> = ({
         className={`block py-3 px-6 text-base font-bold tracking-widest ${
           isMobile ? "text-center hover:bg-gray-800" : ""
         } ${
-          location.hash === href
+          location.hash === href && !isScheduleDemo
             ? "text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-700"
             : ""
+        } ${
+          isScheduleDemo
+            ? "bg-purple-600 text-white rounded-full hover:bg-purple-700"
+            : ""
         }`}
+        target={href.startsWith("http://") || href.startsWith("https://") ? "_blank" : "_self"}
+        rel={href.startsWith("http://") || href.startsWith("https://") ? "noopener noreferrer" : ""}
       >
         {children}
       </a>
@@ -98,29 +114,34 @@ const NavBar = () => {
     { href: isLandingPage ? "#features" : "/#features", label: "KEY FEATURES" },
     { href: "/how-to-use", label: "HOW TO USE" },
     {
-      href: isLandingPage ? "#contact" : "/#contact",
-      label: "SCHEDULE DEMO",
+      href: "https://studio.starkvision.in",
+      label: "Try Stark Vision",
     },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90">
-      <ul className="hidden md:flex justify-center items-center h-16 text-sm font-medium">
-        {navItems.map((item) => (
-          <NavItem key={item.href} href={item.href}>
-            {item.label}
-          </NavItem>
-        ))}
-      </ul>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm">
+      <div className="container mx-auto flex justify-center items-center h-16 px-4">
+        <a href={isLandingPage ? "#home" : "/"} className="flex items-center mr-8">
+          <img src={logoImage} alt="Stark Vision Logo" className="h-12" />
+        </a>
+        <ul className="hidden md:flex justify-center items-center h-16 text-sm font-medium">
+          {navItems.map((item) => (
+            <NavItem key={item.href} href={item.href}>
+              {item.label}
+            </NavItem>
+          ))}
+        </ul>
 
-      <div className="md:hidden flex justify-end items-center h-16 px-4">
-        <button
-          onClick={toggleMenu}
-          className="text-white hover:text-[#CB6CE6] transition-colors duration-300"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex justify-end items-center h-16">
+          <button
+            onClick={toggleMenu}
+            className="text-white hover:text-[#CB6CE6] transition-colors duration-300"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {isOpen && (

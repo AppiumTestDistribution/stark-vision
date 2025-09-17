@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const phrases = [
-  "AI-Powered Mobile App Testing",
-  "Test Mobile Apps faster, using AI",
-  "Tech Agnostic, Autonomous Testing",
+  'AI-Native Mobile App Testing',
+  'Test Mobile Apps faster, using AI',
+  'Tech Agnostic, Autonomous Testing',
 ];
 
 const TypewriterEffect: React.FC = () => {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [currentText, setCurrentText] = useState("");
+  const [currentText, setCurrentText] = useState('');
 
   useEffect(() => {
     if (currentPhraseIndex >= phrases.length) return;
@@ -24,7 +24,7 @@ const TypewriterEffect: React.FC = () => {
     } else {
       const timeout = setTimeout(() => {
         setCurrentPhraseIndex((prevIndex) => prevIndex + 1);
-        setCurrentText("");
+        setCurrentText('');
       }, 2000); // Wait 2 seconds before starting the next phrase
 
       return () => clearTimeout(timeout);
