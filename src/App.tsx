@@ -1,8 +1,8 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import HowToUsePage from "./HowToUsePage";
+import VideosPage from "./VideosPage";
 import { ScrollToTop } from "./ScrollToTop";
 import StarkVisionLandingPage from "./StarkVisionLandingPage";
-import VideosPage from "./VideosPage";
 
 function App() {
   return (

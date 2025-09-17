@@ -21,6 +21,9 @@ const NavItem: React.FC<NavItemProps> = ({
   const isLandingPage = location.pathname === "/";
 
   const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href.startsWith("http://") || href.startsWith("https://")) {
+      return;
+    }
     e.preventDefault();
 
     if (href.startsWith("#")) {
@@ -47,7 +50,7 @@ const NavItem: React.FC<NavItemProps> = ({
     if (onClick) onClick();
   };
 
-  const isScheduleDemo = children === "SCHEDULE DEMO";
+  const isScheduleDemo = children === "Try Stark Vision";
 
   return (
     <li
@@ -73,6 +76,8 @@ const NavItem: React.FC<NavItemProps> = ({
             ? "bg-purple-600 text-white rounded-full hover:bg-purple-700"
             : ""
         }`}
+        target={href.startsWith("http://") || href.startsWith("https://") ? "_blank" : "_self"}
+        rel={href.startsWith("http://") || href.startsWith("https://") ? "noopener noreferrer" : ""}
       >
         {children}
       </a>
@@ -108,10 +113,9 @@ const NavBar = () => {
     { href: isLandingPage ? "#home" : "/", label: "HOME" },
     { href: isLandingPage ? "#features" : "/#features", label: "KEY FEATURES" },
     { href: "/how-to-use", label: "HOW TO USE" },
-    { href: "/videos", label: "VIDEOS" },
     {
-      href: isLandingPage ? "#contact" : "/#contact",
-      label: "SCHEDULE DEMO",
+      href: "https://studio.starkvision.in",
+      label: "Try Stark Vision",
     },
   ];
 
